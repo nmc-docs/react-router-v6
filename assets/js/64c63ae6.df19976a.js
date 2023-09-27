@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhtml=self.webpackChunkhtml||[]).push([[187],{3378:e=>{e.exports=JSON.parse('{"title":"Hooks","slug":"/category/hooks","permalink":"/react-router-v6/category/hooks","navigation":{"previous":{"title":"<Navigate />","permalink":"/react-router-v6/components/navigate"},"next":{"title":"useParams()","permalink":"/react-router-v6/hooks/useParams"}}}')}}]);
