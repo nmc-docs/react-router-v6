@@ -40,24 +40,3 @@ export default function Home() {
   );
 }
 ```
-
-:::caution
-
-Sự khác nhau khi có dấu `/` trước giá trị của thuộc tính `to`:
-
-- Giả sử ta có một `<Route />` như sau:
-
-```tsx
-<Route path="/login" element={<Login />} />;
-
-function Login() {
-  return <Link to="">This is Link</Link>;
-}
-```
-
-=> Sự khác biệt khi `to = "test"` và `to = "/test"`:
-
-- `to = "test"`: Điều hướng đến **/login/test**
-- `to = "/test"`: Điều hướng đến **/test**
-
-:::

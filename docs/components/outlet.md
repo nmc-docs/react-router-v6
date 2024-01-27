@@ -4,7 +4,12 @@ sidebar_position: 3
 
 # `<Outlet />`
 
-- Khi các `<Route />` được lồng nhau (quan hệ cha - con), để component của `<Route />` **con** có thể hiển thị được thì component của `<Route />` **cha** phải có `<Outlet />`
+:::info
+
+- Khi các `<Route />` được lồng nhau (quan hệ cha - con), để component của `<Route />` **con** có thể render được thì component của `<Route />` **cha** phải có `<Outlet />`
+
+:::
+
 - Ví dụ:
 
 ```tsx
@@ -44,3 +49,9 @@ function App() {
 }
 export default App;
 ```
+
+:::info
+
+- Component `<Outlet />` nhận vào một props có tên **context** là giá trị (nếu có) truyền xuống component ở route con. Ở component của route con, nếu muốn lấy giá trị này, hãy sử dụng hook [useOutletContext()](../hooks/useOutletContext)
+
+:::

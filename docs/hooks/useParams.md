@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # useParams()
 
-- **Đặt vấn đề** : Giờ ta muốn định tuyến động, ví dụ khi ta truy cập: **/contact/John** thì trang web sẽ hiển thị dòng chữ "Contact for John", còn khi truy cập đến **/contact/Sera** thì trang web sẽ hiển thị dòng chữ "Contact for Sera". Ta không thể tạo cứng các định tuyến cố định, thay vào đó, sẽ sử dụng một hook của React Router V6 đó là `useParams()`.
+- **Đặt vấn đề** : Giờ ta muốn định tuyến động, ví dụ khi ta truy cập: **/contact/John** thì trang web sẽ hiển thị dòng chữ "Contact for John", còn khi truy cập đến **/contact/Sera** thì trang web sẽ hiển thị dòng chữ "Contact for Sera". Ta không thể tạo cứng các định tuyến cố định, thay vào đó, ta sẽ sử dụng route động thông qua một hook của React Router V6 đó là `useParams()`.
 - Cách dùng: thêm dấu `:` trước tên của định tuyến động và tên của định tuyến động phải giống với tên property được lấy ra từ `useParams()`.
 - Ví dụ:
 
@@ -41,3 +41,27 @@ function App() {
 }
 export default App;
 ```
+
+:::info
+
+- Nếu có nhiều route động lồng nhau thì bất kỳ tại component nào (cha, con) đều lấy được tất cả các params, ví dụ sau tại component `<Home/>` , `<ProjectDetail/>` hay `<Test/>` đều lấy được giá trị của `project` hoặc `test` thông qua `const { project, test } = useParams();`:
+
+```tsx
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />}>
+      <Route path=":project" element={<ProjectDetail />}>
+        <Route path=":test" element={<Test />} />
+      </Route>
+    </Route>
+  </Routes>
+</BrowserRouter>
+```
+
+:::
+
+:::note
+
+- Khi các params thay đổi thì component cũng sẽ bị re-render
+
+:::
