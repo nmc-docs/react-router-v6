@@ -39,4 +39,4 @@ sidebar_position: 4
   - Nếu `navigate("../")` thì sẽ redirect đến **http://localhost:3000/post/detailPost/test**
   - Nếu `navigate("../user")` thì sẽ redirect đến **http://localhost:3000/post/detailPost/test/user**
 
-## Test auto deploy
+## Test auto deploy hic
