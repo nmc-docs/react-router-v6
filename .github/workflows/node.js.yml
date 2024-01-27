@@ -1,17 +1,24 @@
-name: Node.js CI/CD
+name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [20.x]
     steps:
-      - name: Install dependencies
-        run: npm install
-
-      - name: Deploy
-        run: GIT_USER=minhchi1509npm run deploy
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: GIT_USER=minhchi1509 npm run deploy
