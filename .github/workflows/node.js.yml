@@ -10,13 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Deploy
-      env:
-        GIT_USER: minhchi1509
-      run: npm run deploy
+      - name: Deploy
+        run: GIT_USER=minhchi1509npm run deploy
