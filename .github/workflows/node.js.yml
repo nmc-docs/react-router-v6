@@ -28,4 +28,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - run: GIT_USER=minhchi1509 npm run deploy
+      - name: Deploy
+        env:
+          GIT_USER: minhchi1509
+        run: npm run deploy
